@@ -1,2 +1,2 @@
-# concurrency_theory
-AGH Computer Science 3rd year course
+# Concurrency Theory
+AGH WIET IT 3rd year course
