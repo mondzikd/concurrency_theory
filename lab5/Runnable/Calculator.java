@@ -1,22 +1,18 @@
 package lab5.Runnable;
 
-import java.util.concurrent.CountDownLatch;
-
 public class Calculator implements Runnable{
     private final int MAX_ITER = 2000;
     private final double ZOOM = 150;
     private int index, length;
     private int width, height;
     private Mandelbrot mandelbrot;
-    private CountDownLatch latch;
 
-    public Calculator(int startPosition, int length, Mandelbrot mandelbrot, CountDownLatch latch){
+    public Calculator(int startPosition, int length, Mandelbrot mandelbrot){
         this.index = startPosition;
         this.length = length;
         this.mandelbrot = mandelbrot;
         this.width = mandelbrot.getWidth();
         this.height = mandelbrot.getHeight();
-        this.latch = latch;
     }
 
     public void run(){
@@ -40,6 +36,5 @@ public class Calculator implements Runnable{
             }
             index++;
         }
-        latch.countDown();
     }
 }
