@@ -47,13 +47,13 @@ public class Mandelbrot extends JFrame {
     }
 }
 ```
-  Proszę przetestować szybkość działania programu w zależności od liczby wątków w pul:
-    - jeden wątek
-    - tyle samo watkow co rdzeni
-    - dwa razy wiecej wątkow niz rdzeni
-  oraz stosunku liczby zadań do liczby watkow w puli:
-    - tyle samo zadan co wątków,
-    - 10x wiecej zadan co wątków,
-    - każde zadanie to jeden piksel.
+Proszę przetestować szybkość działania programu w zależności od liczby wątków w pul:
+- jeden wątek
+- tyle samo watkow co rdzeni
+- dwa razy wiecej wątkow niz rdzeni
+oraz stosunku liczby zadań do liczby watkow w puli:
+- tyle samo zadan co wątków,
+- 10x wiecej zadan co wątków,
+- każde zadanie to jeden piksel.
 
-  Czas obliczeń można zwiększać manipulując parametrami problemu, np. liczbą iteracji (MAX_ITER). Czas należy zmierzyć 10 razy dla tego samego przypadku, policzyć średnią i odchylenie standardowe. Wyniki przedstawic w tabelce, znaleźć najszybszą konfigurację.
+Czas obliczeń można zwiększać manipulując parametrami problemu, np. liczbą iteracji (MAX_ITER). Czas należy zmierzyć 10 razy dla tego samego przypadku, policzyć średnią i odchylenie standardowe. Wyniki przedstawic w tabelce, znaleźć najszybszą konfigurację.
