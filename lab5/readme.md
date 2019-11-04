@@ -51,7 +51,9 @@ Proszę przetestować szybkość działania programu w zależności od liczby w�
 - jeden wątek
 - tyle samo watkow co rdzeni
 - dwa razy wiecej wątkow niz rdzeni
+
 oraz stosunku liczby zadań do liczby watkow w puli:
+
 - tyle samo zadan co wątków,
 - 10x wiecej zadan co wątków,
 - każde zadanie to jeden piksel.
