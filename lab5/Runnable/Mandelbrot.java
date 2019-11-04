@@ -3,9 +3,9 @@ package lab5.Runnable;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -31,19 +31,23 @@ public class Mandelbrot extends JFrame {
                 int startingIndex = 0;
 
                 ExecutorService executorService = Executors.newFixedThreadPool(threads);
-                CountDownLatch latch = new CountDownLatch(tasks);
 
                 for (int t = 0; t < tasks; t++) {
-                    Calculator calc = new Calculator(startingIndex, pixelsForTask, this, latch);
+                    Calculator calc = new Calculator(startingIndex, pixelsForTask, this);
                     executorService.submit(calc);
                     startingIndex += pixelsForTask;
                 }
 
+                executorService.shutdown();
                 try {
-                    latch.await();
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                    if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
+                        executorService.shutdownNow();
+                    }
+                } catch (InterruptedException ex) {
+                    executorService.shutdownNow();
+                    Thread.currentThread().interrupt();
                 }
+
                 long stopTime = System.currentTimeMillis();
                 long elapsedTime = stopTime - startTime;
                 System.out.println(threads + " " + tasks + " " + elapsedTime);
