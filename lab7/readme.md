@@ -1,4 +1,6 @@
-# Lab 7 (na podstawie instrukcji Bartosza Balisia AGH)
+# Lab 7 
+
+(na podstawie instrukcji Bartosza Balisia AGH)
 
 
 ## Wprowadzenie do ćwiczenia
