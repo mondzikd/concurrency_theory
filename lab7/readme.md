@@ -1,35 +1,34 @@
 # Lab 7
 
 
- ## Implementacja - programowanie wielowątkowe
- 
- Zaimplementuj rozwiązanie problemu pięciu Filozofów w wybranych trzech językach programowania, w następujących wariantach:
+## Wprowadzenie do ćwiczenia
 
-1. *Rozwiązanie naiwne* (z możliwością blokady). Każdy filozof czeka, aż wolny będzie lewy
-widelec, a następnie go podnosi (zajmuje), następnie podobnie postępuje z prawym
-widelcem.
+Problem pięciu filozofów jest jednym z klasycznych problemów teorii współbieżności. Podstawowe sformułowanie problemu jest następujące 1 :
+- N filozofów zasiada przy okrągłym stole
+- Pomiędzy sąsiednimi filozofami leży widelec (łącznie jest N widelców)
+- Każdy filozof działa ciągle według schematu „myślenie – jedzenie – myślenie – jedzenie – ... ”. Każdy z etapów (myślenie i jedzenie) jest skończony.
+- Aby zjeść, filozof musi podnieść oba sąsiadujące widelce
 
-2. *Rozwiązanie z możliwością zagłodzenia*. Każdy filozof sprawdza czy oba sąsiednie widelce są
-wolne i dopiero wtedy zajmuje je jednocześnie. Rozwiązanie to jest wolne od blokady, jednak
-w przypadku, gdy zawsze któryś z sąsiadów będzie zajęty jedzeniem, nastąpi zagłodzenie,
-gdyż oba widelce nigdy nie będą wolne.
+**Zadanie**: zaprojektuj algorytm jednoczesnej alokacji współdzielonych zasobów (widelce) przez konkurujące procesy (filozofowie), tak aby uniknąć zakleszczenia i zagłodzenia. 
+Niektóre z rozwiązań problemu pięciu filozofów są następujące:
 
-3. *Rozwiązanie asymetryczne*. Filozofowie są ponumerowani. Filozof z parzystym numerem
-najpierw podnosi prawy widelec, filozof z nieparzystym numerem najpierw podnosi lewy
-widelec.
+1. **Rozwiązanie naiwne** (z możliwością blokady). Każdy filozof czeka, aż wolny będzie lewy widelec, a następnie go podnosi (zajmuje), następnie podobnie postępuje z prawym widelcem.
 
-4. *Rozwiązanie z arbitrem*. Zewnętrzny arbiter (lokaj, kelner) pilnuje, aby jednocześnie co
-najwyżej czterech (w ogólnym przypadku N-1) filozofów konkurowało o widelce. Jeśli naraz
-wszyscy filozofowie będą chcieli jeść, arbiter powstrzymuje jednego z nich aż do czasu, gdy
-któryś z filozofów skończy jeść.
+2. **Rozwiązanie z możliwością zagłodzenia**. Każdy filozof sprawdza czy oba sąsiednie widelce są wolne i dopiero wtedy zajmuje je jednocześnie. Rozwiązanie to jest wolne od blokady, jednak w przypadku, gdy zawsze któryś z sąsiadów będzie zajęty jedzeniem, nastąpi zagłodzenie, gdyż oba widelce nigdy nie będą wolne.
+
+3. **Rozwiązanie asymetryczne**. Filozofowie są ponumerowani. Filozof z parzystym numerem najpierw podnosi prawy widelec, filozof z nieparzystym numerem najpierw podnosi lewy widelec.
+
+4. **Rozwiązanie z arbitrem**. Zewnętrzny arbiter (lokaj, kelner) pilnuje, aby jednocześnie co najwyżej czterech (w ogólnym przypadku N-1) filozofów konkurowało o widelce. Jeśli naraz wszyscy filozofowie będą chcieli jeść, arbiter powstrzymuje jednego z nich aż do czasu, gdy któryś z filozofów skończy jeść.
+
+
+## Implementacja - programowanie wielowątkowe
+
+Zaimplementuj rozwiązanie problemu pięciu Filozofów w wybranych trzech językach programowania, w każdym z czterech powyższych wariantów.
+
 
 ## Implementacja - programowanie asynchroniczne
 
-W paradygmacie programowania asynchronicznego nie ma mechanizmów synchronizacji. Problem
-dostępu do współdzielonych zasobów można zatem oprzeć o algorytm BEB (Binary Exponential
-Backoff) 4 , podobny do stosowanego w protokole CSMA/CD, który jest wykorzystywany w sieci
-Ethernet do rozwiązania problemu jednoczesnego dostępu do wspólnego medium.
-Korzystając z zadanego szkieletu programu w [Node.js](https://github.com/balis/conc-phil5):
+W paradygmacie programowania asynchronicznego nie ma mechanizmów synchronizacji. Problem dostępu do współdzielonych zasobów można zatem oprzeć o algorytm BEB (Binary Exponential Backoff) 4 , podobny do stosowanego w protokole CSMA/CD, który jest wykorzystywany w sieci Ethernet do rozwiązania problemu jednoczesnego dostępu do wspólnego medium. Korzystając z zadanego szkieletu programu w [Node.js](https://github.com/balis/conc-phil5):
 
 1. Dokończ implementację funkcji podnoszenia widelca (Fork.acquire) w oparciu o algorytm BEB.
 2. Zaimplementuj "naiwny" algorytm (filozof podnosi najpierw lewy, potem prawy widelec).
