@@ -1,4 +1,4 @@
-# Lab 7
+# Lab 7 (na podstawie instrukcji Bartosza Balisia AGH)
 
 
 ## Wprowadzenie do ćwiczenia
@@ -37,3 +37,14 @@ podnoszą widelec lewy, z parzystym - prawy.
 4. Zaimplementuj rozwiązanie z arbitrem (kelnerem).
 5. Zaimplementuj rozwiązanie z jednoczesnym podnoszeniem widelców: filozof albo podnosi
 jednocześnie oba widelce, albo żadnego.
+
+
+## Porównanie rozwiązań
+
+Korzystając z wykonanych implementacji:
+- Uruchom eksperymenty dla różnej liczby filozofów i dla każdego wariantu implementacji (nie powodującego zakleszczenia).
+- Zmierz średni czas oczekiwania każdego filozofa na dostęp do widelców. Wykonaj kilka pomiarów dla każdego przypadku testowego.
+- Wyniki przedstaw na wykresach porównawczych, dbając o odpowiednią wizualizację (można wykorzystać np. wykresy pudełkowe).
+- Sformułuj i zapisz wnioski. Czy średnie czasy oczekiwania są wyższe dla wariantu z możliwością zagłodzenia? Czy brak mechanizmów synchronizacji zwiększa czas oczekiwania na dostęp do zasobów? (Porównanie Node.js vs. Java może to być trudne do
+oceny z uwagi na różne środowiska wykonawcze).
+
