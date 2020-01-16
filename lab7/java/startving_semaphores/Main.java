@@ -16,7 +16,7 @@ public class Main {
 
         for (int i = 0; i < number; i++) {
             forks[i] = new Fork(i);
-            places[i] = new PhilosopherPlace(table, i);
+            places[i] = new PhilosopherPlace(table);
         }
 
         for (int i = 0; i < number; i++) {

@@ -9,11 +9,9 @@ import java.util.concurrent.Semaphore;
 public class PhilosopherPlace {
     private Semaphore table;
     private int freeForks = 2;
-    int id;
 
-    public PhilosopherPlace(Semaphore table, int id){
+    public PhilosopherPlace(Semaphore table){
         this.table = table;
-        this.id = id;
     }
 
     public synchronized void decrease(){
