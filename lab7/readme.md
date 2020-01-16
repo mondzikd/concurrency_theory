@@ -5,7 +5,7 @@
 
 ## Wprowadzenie do ćwiczenia
 
-Problem pięciu filozofów jest jednym z klasycznych problemów teorii współbieżności. Podstawowe sformułowanie problemu jest następujące 1 :
+Problem pięciu filozofów jest jednym z klasycznych problemów teorii współbieżności. Podstawowe sformułowanie problemu jest następujące:
 - N filozofów zasiada przy okrągłym stole
 - Pomiędzy sąsiednimi filozofami leży widelec (łącznie jest N widelców)
 - Każdy filozof działa ciągle według schematu „myślenie – jedzenie – myślenie – jedzenie – ... ”. Każdy z etapów (myślenie i jedzenie) jest skończony.
